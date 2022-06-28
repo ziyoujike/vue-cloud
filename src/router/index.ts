@@ -1,5 +1,8 @@
+import { useUserStore } from '@/stores/user';
+import { storeToRefs } from 'pinia';
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '../layout/index.vue';
+
 // 在 Vue-router新版本中，需要使用createRouter来创建路由
 const router = createRouter({
     // 指定路由的模式,此处使用的是hash模式
@@ -23,6 +26,15 @@ const router = createRouter({
                     meta: {
                         title: '首页',
                         disable: true,
+                    },
+                },
+                {
+                    path: '/personal/personal-center',
+                    name: 'personal-center',
+                    component: () => import('../views/personal/personal-center.vue'),
+                    meta: {
+                        title: '个人中心',
+                        disable: false,
                     },
                 },
             ]
@@ -88,6 +100,34 @@ const router = createRouter({
                 disable: false,
             },
         },
+        {
+            path: '/404',
+            name: '404',
+            component: () => import('@/views/error/404.vue'),
+            meta: {
+                title: '404',
+                disable: false,
+            },
+        },
+        {
+            path: '/403',
+            name: '403',
+            component: () => import('@/views/error/403.vue'),
+            meta: {
+                title: '403',
+                disable: false,
+            },
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            redirect: '/404',
+            name: "pathMatch",
+            component: () => import('@/views/error/403.vue'),
+            meta: {
+                title: '重定向',
+                disable: false,
+            },
+        },
         // {
         //     path: '/system-management',
         //     name: 'system-management',
@@ -110,6 +150,15 @@ const router = createRouter({
         //     ],
         // },
     ]
+})
+
+router.beforeEach((to, from, next) => {
+    const { isLogin } = storeToRefs(useUserStore());
+    // 登录页面直接跳
+    if (to.path === '/login') return next();
+    // 没有登录，重定向到登录页面
+    if (!isLogin.value) return next(`/login?redirect=${to.path}`);
+    next();
 })
 
 export default router;

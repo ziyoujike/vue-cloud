@@ -1,5 +1,5 @@
 <template>
-  <p>Ant Design ©2018 Created by Ant UED</p>
+  <p style="margin: 0;">Ant Design ©2018 Created by Ant UED</p>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";

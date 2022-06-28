@@ -57,10 +57,11 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
 import { reactive, ref, UnwrapRef } from 'vue';
 import { Login, Register } from '@/servers/db_user';
 import { User } from "@/libs/db_user";
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { message } from 'ant-design-vue';
 import { useUserStore } from '@/stores/user';
 
+const route = useRoute();
 const router = useRouter();
 const userStore = useUserStore();
 const status = ref<'register' | 'password' | 'phone'>("password");
@@ -75,21 +76,35 @@ const onSubmit = () => {
 	formRef.value
 		.validate()
 		.then(() => {
-      login();
+      status.value === 'register' && register();
+      status.value !== 'register' && login();
 		})
 		.catch(() => {
 			console.log("error");
 		});
 };
+const register = async() => {
+  try {
+    loading.value = true;
+    await Register(formState);
+    loading.value = false;
+    login();
+  } catch (error) {
+    loading.value = false;
+  }
+}
 const login = async() => {
   try {
-    let requestFun = status.value === 'register' ? Register : Login;
     loading.value = true;
-    let res = await requestFun(formState);
+    let res = await Login(formState);
+    userStore.SET_ISLOGIN(true);
+    await userStore.GET_USER_INFO();
     loading.value = false;
     message.success(res.message);
-    userStore.GET_USER_INFO();
-    router.push('/');
+    
+		let redirect = route.query.redirect ? route.query.redirect : "/";
+		redirect = redirect == "/404" ? "/" : redirect;
+		router.push(`${redirect}`);
   } catch (error) {
     loading.value = false;
   }

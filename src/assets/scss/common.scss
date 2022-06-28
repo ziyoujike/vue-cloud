@@ -8,6 +8,33 @@
   height: 36px;
 }
 
+.color-fff {
+  color: #fff;
+}
+
+// 单行溢出
+.text-overflow1 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// 2行省略
+.text-overflow2 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+// flex居中
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .flex-s-b {
   display: flex;
   justify-content: space-between;

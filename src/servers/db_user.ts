@@ -39,9 +39,27 @@ export const SendPhoneCode = (options: { phone: string }) => {
 
 // 获取用户信息
 export const GetUserInfo = (options = {}) => {
-  return rquest({
+  return rquest<User.UserInfo>({
     method: "GET",
     url: "/api/common/get_user_info",
+    data: options
+  })
+}
+
+// 修改用户信息
+export const LoginOut = (options = {}) => {
+  return rquest({
+    method: "GET",
+    url: "/api/common/login_out",
+    data: options
+  })
+}
+
+// 修改用户信息
+export const UpdateUserInfo = (options: User.UpdateUserInfo) => {
+  return rquest({
+    method: "POST",
+    url: "/api/common/update_user_info",
     data: options
   })
 }
