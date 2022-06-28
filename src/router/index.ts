@@ -79,6 +79,15 @@ const router = createRouter({
                 },
             ],
         },
+        {
+            path: '/login',
+            name: 'login',
+            component: () => import('../views/login/login.vue'),
+            meta: {
+                title: '登录注册',
+                disable: false,
+            },
+        },
         // {
         //     path: '/system-management',
         //     name: 'system-management',
