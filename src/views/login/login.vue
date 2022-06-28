@@ -52,15 +52,17 @@
 </template>
 
 <script setup lang="ts">
+import CodeInput from "@/components/code-input.vue";
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
 import { reactive, ref, UnwrapRef } from 'vue';
 import { Login, Register } from '@/servers/db_user';
-import CodeInput from "@/components/code-input.vue";
 import { User } from "@/libs/db_user";
 import { useRouter } from 'vue-router';
 import { message } from 'ant-design-vue';
+import { useUserStore } from '@/stores/user';
 
 const router = useRouter();
+const userStore = useUserStore();
 const status = ref<'register' | 'password' | 'phone'>("password");
 const formRef = ref();
 const loading = ref<boolean>(false);
@@ -86,6 +88,7 @@ const login = async() => {
     let res = await requestFun(formState);
     loading.value = false;
     message.success(res.message);
+    userStore.GET_USER_INFO();
     router.push('/');
   } catch (error) {
     loading.value = false;

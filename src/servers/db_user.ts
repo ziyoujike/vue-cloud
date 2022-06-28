@@ -36,3 +36,12 @@ export const SendPhoneCode = (options: { phone: string }) => {
     data: options
   })
 }
+
+// 获取用户信息
+export const GetUserInfo = (options = {}) => {
+  return rquest({
+    method: "GET",
+    url: "/api/common/get_user_info",
+    data: options
+  })
+}
