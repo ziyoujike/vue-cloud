@@ -140,6 +140,11 @@ const rules = {
   .ant-input {
     background-color: transparent !important;
     color: #fff !important;
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: #fff; // 字体颜色
+      transition: background-color 50000s ease-in-out 0s; // 50000秒以后再变回它默认的填充色
+    }
   }
 }
 </style>
