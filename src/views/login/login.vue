@@ -41,7 +41,7 @@
         </a-form-item>
       </a-form>
       <div class="bottom-text flex-s-b">
-        <a @click="status = 'phone'" v-if="status === 'register'">返回登录</a>
+        <a @click="status = 'password'" v-if="status === 'register'">返回登录</a>
         <a @click="status = 'register'" v-else>没有账号？立即注册</a>
 
         <a @click="status = 'password'" v-if="status === 'phone'">密码登录</a>
