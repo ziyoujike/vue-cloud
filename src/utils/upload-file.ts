@@ -10,8 +10,8 @@ let returnValue = {
     code: 200,
 };
 
-const qiniuUploadFile = (options: any) => {
 
+const qiniuUploadFile = (options: any) => {
     return new Promise((resolve, reject) => {
         UploadFile().then(response => {
             let uptoken = response.data;

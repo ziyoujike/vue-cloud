@@ -38,7 +38,7 @@ export const PutDictionariesItem = (options: any) => {
 export const UploadFile = () => {
     return rquest({
         method: "GET",
-        url: "/api/common/uploadFile",
+        url: "/api/common/upload_file",
     })
 }
 
