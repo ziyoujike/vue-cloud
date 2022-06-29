@@ -1,0 +1,1 @@
+import{G as e}from"./db_common.eae5c477.js";import{d as i}from"./index.5f0281f2.js";const c=i({__name:"index",setup(n){return(()=>{e().then(t=>{localStorage.setItem("dictionaries",JSON.stringify(t.data))})})(),(t,r)=>"\u9996\u9875"}});export{c as default};

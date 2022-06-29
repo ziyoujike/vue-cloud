@@ -1,0 +1,1 @@
+const s=(i,e)=>{for(const t in i)!e[t]&&e[t]!==0||(i[t]=e[t]);return i},r=i=>{const e=[];let t=localStorage.getItem("dictionaries");const n=t?JSON.parse(t):[];for(let o=0;o<n.length;o++)n[o].type===i&&e.push(n[o]);return e},a=(i,e)=>{const t=r(i);let n="";return t.some(o=>{o.code===Number(e)&&(n=o.title)}),n};export{s as a,r as d,a as f};

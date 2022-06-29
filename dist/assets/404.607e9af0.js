@@ -1,0 +1,1 @@
+import{E as r}from"./error.d525be83.js";import{d as e,o,l as t}from"./index.5f0281f2.js";const p=e({__name:"404",setup(n){const u={errTitle:"\u62B1\u6B49!",errReason:"\u60A8\u8BBF\u95EE\u7684\u9875\u9762\u4E0D\u5B58\u5728...",errSolution:"\u8BF7\u68C0\u67E5\u94FE\u63A5\u662F\u5426\u6B63\u786E\u3002"};return(a,s)=>(o(),t(r,{errInfo:u}))}});export{p as default};
