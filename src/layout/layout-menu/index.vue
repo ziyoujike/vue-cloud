@@ -7,20 +7,20 @@
       >
         <template #title>
           <span>
-            {{ item.meta && item.meta.title }}
+            {{ item.meta?.title }}
           </span>
         </template>
         <div v-for="children in filterMemu(item.children)">
           <span @click="handleClick(children)">
             <a-menu-item :key="children.path">
-              {{ children.meta && children.meta.title }}
+              {{ children.meta?.title }}
             </a-menu-item>
           </span>
         </div>
       </a-sub-menu>
       <span @click="handleClick(item)" v-else>
         <a-menu-item :key="item.name">
-          {{ item.meta && item.meta.title }}
+          {{ item.meta?.title }}
         </a-menu-item>
       </span>
     </div>

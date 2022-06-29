@@ -62,6 +62,38 @@ const router = createRouter({
             ],
         },
         {
+            path: '/resourceModule',
+            name: 'resourceModule',
+            redirect: '/resourceModule/index',
+            component: Layout,
+            meta: {
+                title: '资源模块',
+                disable: true,
+            },
+            children: [
+                {
+                    path: '/resourceModule/resources',
+                    name: 'resources',
+                    component: () => import('../views/resource-module/resources.vue'),
+                    meta: {
+                        title: '资源模块',
+                        disable: true,
+                    },
+                },
+                {
+                    path: '/resourceModule/resources_classify',
+                    name: 'resources_classify',
+                    component: () => import('../views/resource-module/resources_classify.vue'),
+                    meta: {
+                        title: '资源分类',
+                        disable: true,
+                    },
+                },
+                // 
+
+            ],
+        },
+        {
             path: '/system-management',
             name: 'system-management',
             redirect: '/system-management/user-list',

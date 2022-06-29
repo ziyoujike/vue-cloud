@@ -80,7 +80,7 @@ const Model = {
   data: null,
 };
 
-let DictionaryModelRefs = ref(null);
+let DictionaryModelRefs = ref<any>(null);
 
 let showDictionaryModel = () => {
   console.log(DictionaryModelRefs);
@@ -89,7 +89,7 @@ let showDictionaryModel = () => {
   DictionaryModelRefs.value.showDrawer(Model);
 };
 
-const delDictionaryItem = (item) => {
+const delDictionaryItem = (item:any) => {
   console.log(item);
   DelDictionaries({ id: item.id }).then((response: any) => {
     console.log(response);
@@ -101,7 +101,7 @@ const delDictionaryItem = (item) => {
     }
   });
 };
-const editDictionariesItem = (item) => {
+const editDictionariesItem = (item:any) => {
   Model.isEdit = true;
   Model.data = item;
   DictionaryModelRefs.value.showDrawer(Model);

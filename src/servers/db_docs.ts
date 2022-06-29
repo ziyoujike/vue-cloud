@@ -1,7 +1,7 @@
 import rquest from "../utils";
 
 
-export const GetResourcesListAll = (options) => {
+export const GetResourcesListAll = (options:any) => {
 
     return rquest({
         method: "GET",

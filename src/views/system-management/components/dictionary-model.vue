@@ -30,13 +30,13 @@ import { ref, reactive, toRaw } from "vue";
 import { message } from "ant-design-vue";
 import { AddDictionaries, PutDictionariesItem } from "@/servers/db_common";
 import { dataEcho } from "@/utils/main";
-const visible = ref<boolean>(false);
 import { Form } from "ant-design-vue";
+const visible = ref<boolean>(false);
 const useForm = Form.useForm;
 const afterVisibleChange = (bool: boolean) => {
   console.log("visible", bool);
 };
-let Model = null;
+let Model:any = null;
 let modelRef = reactive({
   id: "",
   title: "",
@@ -74,7 +74,7 @@ let wrapperCol = reactive({
 const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef, {
   onValidate: (...args) => console.log(...args),
 });
-const showDrawer = (options) => {
+const showDrawer = (options:any) => {
   visible.value = true;
   Model = options;
   if (Model.isEdit) {
