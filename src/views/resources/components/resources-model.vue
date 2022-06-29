@@ -68,13 +68,13 @@ import { AddResourcesItem, PutResourcesItem } from "@/servers/db_docs";
 import { qiniuUploadFile } from "@/utils/upload-file";
 import { dataEcho, dictionaries } from "@/utils/main";
 import { PlusOutlined } from "@ant-design/icons-vue";
-const visible = ref<boolean>(false);
 import { Form } from "ant-design-vue";
+const visible = ref<boolean>(false);
 const useForm = Form.useForm;
 const afterVisibleChange = (bool: boolean) => {
   console.log("visible", bool);
 };
-let Model = null;
+let Model:any = null;
 let modelRef = reactive({
   id: "",
   title: "",
@@ -127,7 +127,7 @@ let wrapperCol = reactive({
 const { resetFields, validate, validateInfos } = useForm(modelRef, rulesRef, {
   onValidate: (...args) => console.log(...args),
 });
-const showDrawer = (options) => {
+const showDrawer = (options:any) => {
   visible.value = true;
   Model = options;
   if (Model.isEdit) {
@@ -139,8 +139,8 @@ const showDrawer = (options) => {
 const emit = defineEmits(["emitGetData"]);
 
 // 上传图片
-const customRequest = (event) => {
-  qiniuUploadFile(event.file).then((response) => {
+const customRequest = (event:any) => {
+  qiniuUploadFile(event.file).then((response:any) => {
     if (response.code == 200) {
       message.success(response.message);
       // formRef.value.validateFields(["headPic"]);

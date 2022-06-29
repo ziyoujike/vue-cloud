@@ -7,20 +7,20 @@
       >
         <template #title>
           <span>
-            {{ item.meta.title }}
+            {{ item.meta?.title }}
           </span>
         </template>
         <div v-for="children in item.children">
           <span @click="handleClick(children)">
             <a-menu-item :key="children.path">
-              {{ children.meta.title }}
+              {{ children.meta?.title }}
             </a-menu-item>
           </span>
         </div>
       </a-sub-menu>
       <span @click="handleClick(item)" v-else>
         <a-menu-item :key="item.name">
-          {{ item.meta.title }}
+          {{ item.meta?.title }}
         </a-menu-item>
       </span>
     </div>
@@ -46,7 +46,7 @@ export default defineComponent({
     let selectedKeys = ref<string[]>(["index"]);
     let openKeys = ref<string[]>(["/"]);
     console.log(Router.options.routes)
-    const handleClick = (children) => {
+    const handleClick = (children:any) => {
       openKeys.value = [children.path];
       selectedKeys.value = [children.name];
       Router.push({ path: children.path });

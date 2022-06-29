@@ -98,30 +98,25 @@ let  columns= ref([
       key: "title",
       dataIndex: "title",
     },
-    {
-      title: "创建时间",
-      dataIndex: "create_time",
-      key: "create_time",
+        {
+      title: "图片",
+      dataIndex: "img_url",
+      key: "img_url",
     },
     {
       title: "描述",
       dataIndex: "desc",
       key: "desc",
     },
-    {
-      title: "地址",
-      dataIndex: "img_url",
-      key: "img_url",
+      {
+      title: "链接",
+      dataIndex: "link",
+      key: "link",
     },
     {
       title: "资源分类",
       key: "resources_classify_title",
       dataIndex: "resources_classify_title",
-    },
-        {
-      title: "更新时间",
-      key: "update_time",
-      dataIndex: "update_time",
     },
   ]);
 </script>

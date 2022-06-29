@@ -121,7 +121,7 @@ let pagination = reactive({
   pageSize: 10,
   resources_type: null,
   total: 0,
-  showTotal: (total) => {
+  showTotal: (total:string) => {
     return `共 ${total} 条数据 `;
   },
 });
@@ -132,9 +132,9 @@ const getData = () => {
     console.log(tableState.dataSource);
   });
 };
-getData();
+getData(); 
 
-const handleChange = (options) => {
+const handleChange = (options:any) => {
   console.log(options);
   pagination.current = options.current;
   getData();
@@ -148,7 +148,7 @@ const Model = {
   data: null,
 };
 
-let ResourcesModelRefs = ref(null);
+let ResourcesModelRefs = ref<any>(null);
 
 let showResourcesModel = () => {
   console.log(ResourcesModelRefs);
@@ -157,7 +157,7 @@ let showResourcesModel = () => {
   ResourcesModelRefs.value.showDrawer(Model);
 };
 
-const delDictionaryItem = (item) => {
+const delDictionaryItem = (item:any) => {
   console.log(item);
   DelResourcesItem({ id: item.id }).then((response: any) => {
     console.log(response);
@@ -169,7 +169,7 @@ const delDictionaryItem = (item) => {
     }
   });
 };
-const editDictionariesItem = (item) => {
+const editDictionariesItem = (item:any) => {
   Model.isEdit = true;
   Model.data = item;
   ResourcesModelRefs.value.showDrawer(Model);

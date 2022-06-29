@@ -88,26 +88,17 @@ let  columns= ref([
       title: "标题",
       key: "title",
       dataIndex: "title",
+      
     },
-    {
-      title: "创建时间",
-      dataIndex: "create_time",
-      key: "create_time",
+        {
+      title: "图片",
+      dataIndex: "img_url",
+      key: "img_url",
     },
     {
       title: "描述",
       dataIndex: "desc",
       key: "desc",
-    },
-    {
-      title: "地址",
-      dataIndex: "img_url",
-      key: "img_url",
-    },
-        {
-      title: "更新时间",
-      key: "update_time",
-      dataIndex: "update_time",
     },
   ]);
 
